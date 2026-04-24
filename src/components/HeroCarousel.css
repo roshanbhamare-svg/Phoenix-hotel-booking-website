@@ -1,0 +1,87 @@
+.hero-section {
+  position: relative;
+}
+
+.hero-image {
+  height: 70vh;
+  min-height: 420px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-caption {
+  z-index: 2;
+  bottom: 18%;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #fff !important;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta {
+  font-size: 1rem;
+  padding: 14px 36px;
+}
+
+/* Bootstrap carousel indicator customization */
+.hero-section .carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero-section .carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.3);
+  background-color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-image {
+    height: 50vh;
+    min-height: 320px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+}

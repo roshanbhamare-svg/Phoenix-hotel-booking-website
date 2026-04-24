@@ -1,0 +1,45 @@
+.register-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px var(--color-shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-action {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-apply {
+  padding: 14px 48px;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .register-card {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-apply {
+    width: 100%;
+  }
+}
