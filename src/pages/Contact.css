@@ -1,0 +1,15 @@
+.contact-page {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+.contact-icon {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+  border-radius: 50%;
+  color: var(--color-primary);
+}

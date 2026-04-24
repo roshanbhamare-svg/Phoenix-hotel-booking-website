@@ -100,3 +100,6 @@ export default function RegisterForm({ formData, onChange, onApply, nameRef }) {
     </section>
   )
 }
+
+
+

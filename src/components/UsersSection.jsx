@@ -7,6 +7,7 @@ export default function UsersSection({
   filterRoom,
   onFilterChange,
   stats,
+  onDelete
 }) {
   return (
     <section id="users" className="section-padding">
@@ -65,12 +66,13 @@ export default function UsersSection({
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Room Type</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredUsers.length === 0 ? (
                 <tr>
-                  <td colSpan="5" className="empty-state">
+                  <td colSpan="6" className="empty-state">
                     <div className="empty-icon">📋</div>
                     <div>No guests registered yet.</div>
                   </td>
@@ -88,6 +90,14 @@ export default function UsersSection({
                       >
                         {user.roomType}
                       </span>
+                    </td>
+                    <td>
+                      <button 
+                        className="btn btn-sm btn-outline-danger" 
+                        onClick={() => onDelete(user.id || idx)}
+                      >
+                        Cancel
+                      </button>
                     </td>
                   </tr>
                 ))

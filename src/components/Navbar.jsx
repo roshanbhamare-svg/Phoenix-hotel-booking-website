@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { ThemeContext } from '../context/ThemeContext'
 import './Navbar.css'
 
@@ -10,10 +11,10 @@ export default function Navbar() {
       <div className="container">
         <div className="navbar-inner">
           {/* Brand */}
-          <a className="navbar-brand" href="#hero">
+          <Link className="navbar-brand" to="/">
             <span className="brand-icon">🏨</span>
             Hotel Phoenix
-          </a>
+          </Link>
 
           {/* Mobile toggle */}
           <button
@@ -34,16 +35,16 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#hero">Home</a>
+                <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#rooms">Rooms</a>
+                <Link className="nav-link" to="/book">Book Room</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#register">Book</a>
+                <Link className="nav-link" to="/bookings">Previous Bookings</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#users">Guests</a>
+                <Link className="nav-link" to="/contact">Contact</Link>
               </li>
             </ul>
 
