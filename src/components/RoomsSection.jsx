@@ -34,9 +34,7 @@ export default function RoomsSection() {
                   <span className="feature-chip">📶 Free Wi-Fi</span>
                   <span className="feature-chip">❄️ AC</span>
                 </div>
-                <a href="#register" className="btn-phoenix room-book-btn">
-                  Book Now
-                </a>
+                
               </div>
             </div>
           ))}

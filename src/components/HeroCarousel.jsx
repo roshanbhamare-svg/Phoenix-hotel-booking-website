@@ -41,9 +41,6 @@ export default function HeroCarousel() {
               <div className="carousel-caption hero-caption">
                 <h1 className="hero-title">{slide.title}</h1>
                 <p className="hero-text">{slide.text}</p>
-                <a href="#register" className="btn-phoenix hero-cta">
-                  Book Your Stay
-                </a>
               </div>
             </div>
           ))}
