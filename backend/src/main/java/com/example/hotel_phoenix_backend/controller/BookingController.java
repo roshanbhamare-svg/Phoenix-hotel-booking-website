@@ -14,14 +14,38 @@ import java.util.List;
 public class BookingController {
 
     private final BookingService bookingService;
+    private final com.example.hotel_phoenix_backend.service.WhatsAppService whatsAppService;
 
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingService bookingService, com.example.hotel_phoenix_backend.service.WhatsAppService whatsAppService) {
         this.bookingService = bookingService;
+        this.whatsAppService = whatsAppService;
     }
 
     @PostMapping
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        return ResponseEntity.ok(bookingService.createBooking(booking));
+        Booking savedBooking = bookingService.createBooking(booking);
+        
+        // Trigger WhatsApp Notification
+        if (savedBooking.getPhone() != null && !savedBooking.getPhone().isEmpty()) {
+            String dates = savedBooking.getCheckInDate() + " to " + savedBooking.getCheckOutDate();
+            whatsAppService.sendBookingConfirmation(
+                savedBooking.getPhone(),
+                savedBooking.getFullName(),
+                savedBooking.getRoomType(),
+                dates
+            );
+            
+            // Trigger Payment Notification if there's a price
+            if (savedBooking.getTotalPrice() != null && savedBooking.getTotalPrice() > 0) {
+                whatsAppService.sendPaymentSuccess(
+                    savedBooking.getPhone(),
+                    savedBooking.getFullName(),
+                    "$" + savedBooking.getTotalPrice()
+                );
+            }
+        }
+        
+        return ResponseEntity.ok(savedBooking);
     }
 
     @GetMapping

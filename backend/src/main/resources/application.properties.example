@@ -1,0 +1,26 @@
+spring.application.name=hotel-phoenix-backend
+
+# Database Configuration (H2 In-Memory for testing)
+spring.datasource.url=jdbc:h2:mem:hotel_booking_db
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.h2.console.enabled=true
+
+# Hibernate / JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+
+# Server Configuration
+server.port=8081
+
+# JWT Configuration (for future use)
+app.jwt.secret=YOUR_JWT_SECRET_HERE
+app.jwt.expiration-ms=86400000
+
+# Twilio WhatsApp Configuration
+# Leave empty to use mocked console logs instead of real API calls
+twilio.account.sid=YOUR_TWILIO_ACCOUNT_SID
+twilio.auth.token=YOUR_TWILIO_AUTH_TOKEN
+twilio.phone.number=whatsapp:+14155238886
