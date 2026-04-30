@@ -53,7 +53,11 @@ export default function BookRoom() {
     setLoading(true)
     
     try {
-      const response = await createBooking(formData)
+      const payload = {
+        ...formData,
+        totalPrice: totalPrice
+      }
+      const response = await createBooking(payload)
       console.log('Booking success:', response.data)
       toast.success('✨ Booking successful! Your stay is confirmed.')
       navigate('/bookings')

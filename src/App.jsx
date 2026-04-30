@@ -8,6 +8,7 @@ import Bookings from './pages/Bookings'
 import Contact from './pages/Contact'
 import { ThemeProvider } from './context/ThemeContext'
 import { AuthProvider } from './context/AuthContext'
+import Chatbot from './components/Chatbot'
 import './App.css'
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         </main>
         <Footer />
         <ToastContainer position="bottom-right" autoClose={3000} theme="colored" />
+        <Chatbot />
       </AuthProvider>
     </ThemeProvider>
   )

@@ -1,10 +1,15 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../context/ThemeContext'
+import { useAuth } from '../context/AuthContext'
+import AuthModal from './AuthModal'
+import { useState } from 'react'
 import './Navbar.css'
 
 export default function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext)
+  const { user, logout } = useAuth()
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
 
   return (
     <nav className="phoenix-navbar">
@@ -41,13 +46,20 @@ export default function Navbar() {
               </span>
             </button>
 
-            <Link className="nav-link contact-btn" to="/contact">
-              Contact
-            </Link>
+            {user ? (
+              <button className="nav-link contact-btn border-0" onClick={logout}>
+                Logout
+              </button>
+            ) : (
+              <button className="nav-link contact-btn border-0" onClick={() => setIsAuthOpen(true)}>
+                Login
+              </button>
+            )}
           </div>
 
         </div>
       </div>
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </nav>
   )
 }
